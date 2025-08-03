@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Kim Portfolio</title>
+  <!-- Consistent dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <!-- Glassmorphic Navbar -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="contact-section">
+    <div class="contact-container">
+      <div class="contact-left">
+        <h1>Reach Out <br><span>Lets Connect</span></h1>
+        <p>Bring Your visions to Life<br>Lets Build!</p>
+      </div>
+
+      <div class="contact-right">
+        <form action="https://formspree.io/f/mvgqbqgl" method="POST" class="contact-form">
+          <h2>Reach Out</h2>
+
+          <input type="text" name="firstname" placeholder="First name" required>
+          <input type="text" name="lastname" placeholder="Last name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+          <input type="Message" name="Message" placeholder="Message" required>
+
+          <button type="submit" class="main-btn">
+            Send<i class="fas fa-arrow-right"></i>
+          </button>
+
+          <div class="divider">
+            <span>or</span>
+          </div>
+
+          <button type="button" class="social-btn google-btn" onclick="window.location.href='https://wa.me/254769811851'">
+            <i class="fab fa-whatsapp"></i> Connect on WhatsApp 
+          </button>
+
+          <button type="button" class="social-btn apple-btn" onclick="window.location.href='https://instagram.com/wireframemagic'">
+            <i class="fab fa-instagram"></i> Connect on Instagram
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Form submission feedback
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          alert('Thanks for Reaching out! We\'ll be in touch soon.');
+          form.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      }).catch(error => {
+        alert('There was a problem with your submission. Please try again.');
+      });
+    });
+  </script>
+</body>
+</html>
