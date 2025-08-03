@@ -134,13 +134,18 @@ body {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.815);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+ display: flex;
+  flex-direction: column;  
+  align-items: center;     
+  justify-content: flex-start;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  max-width: 300px;      
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  text-align: center;
 }
 
 .service-card:hover {
@@ -161,7 +166,7 @@ body {
 }
 
 .service-card:hover .service-desc {
-  color: white; /* Change from #fff to white for consistency */
+  color: white; 
 }
 .service-icon {
   font-size: 2.5rem;
