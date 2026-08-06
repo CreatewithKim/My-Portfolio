@@ -627,6 +627,7 @@ body {
   min-height: 80vh;
   display: flex;
   align-items: center;
+  font-family: 'Clash Display', sans-serif;
 }
 
 .contact-container {
@@ -638,6 +639,7 @@ body {
   border-radius: 2rem;
   padding: 3rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Clash Display', sans-serif;
 }
 
 .contact-left {
@@ -647,6 +649,7 @@ body {
   padding: 3rem;
   flex-direction: column;
   justify-content: center;
+  font-family: 'Clash Display', sans-serif;
 }
 
 .contact-left h1 {
@@ -673,6 +676,7 @@ body {
   backdrop-filter: blur(5px);
   border-radius: 1.5rem;
   padding: 2.5rem;
+  font-family: 'Clash Display', sans-serif;
 }
 
 .contact-right h2 {
@@ -694,9 +698,32 @@ body {
   color: white;
   font-size: 1rem;
   transition: all 0.3s ease;
+  font-family: 'Clash Display', sans-serif;
 }
 
 .contact-form input:focus {
+  outline: none;
+  border-color: #1eff61;
+  background: rgba(30, 255, 97, 0.1);
+}
+
+/* Style the message textarea so it matches inputs */
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.8rem;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 160px;
+  font-family: 'Clash Display', sans-serif;
+}
+
+.contact-form textarea:focus {
   outline: none;
   border-color: #1eff61;
   background: rgba(30, 255, 97, 0.1);
@@ -778,3 +805,4 @@ body {
   color: rgba(253, 58, 221, 0.603);
   border-color: #b620e4;
 }
+
