@@ -727,20 +727,24 @@ body {
   gap: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  color: #000;
+  text-decoration: none;
 }
 
 .social-btn:hover {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
 }
 
 .whatsapp-btn:hover {
-  color: rgba(29, 255, 104, 0.418);
+  color: #000;
   border-color: #03c032;
+  text-decoration: none;
 }
 
 .instagram-btn:hover {
-  color: rgba(253, 58, 221, 0.603);
+  color: #000;
   border-color: #b620e4;
+  text-decoration: none;
 }
