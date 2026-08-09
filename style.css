@@ -2,8 +2,8 @@
 
 /* Base styles */
 * {
-  margin: 010;
-  padding: 010;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
@@ -347,7 +347,7 @@ body {
   transform: scale(1.1);
 }
 .tiktok:hover { color: #080808; }
-.discord:hover { color: #5865F2; }
+.github:hover { color: #1f6feb; }
 .facebook:hover { color: #1877F2; }
 .instagram:hover { color: #E4405F; }
 
