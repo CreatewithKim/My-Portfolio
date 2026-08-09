@@ -2,8 +2,8 @@
 
 /* Base styles */
 * {
-  margin: 010;
-  padding: 010;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 body {
@@ -127,40 +127,34 @@ body {
 
 .services-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center; 
   align-items: stretch;
   gap: 1.5rem;
   margin: 2rem 0;
-  gap: 1.5rem;
-  margin: 2rem 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .service-card {
- display: flex;
-  flex-direction: column;  
-  align-items: center;     
-  justify-content: flex-start;
-  padding: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.8rem;
   width: 100%;
-  max-width: 300px;      
   box-sizing: border-box;
   border-radius: 1rem;
-  background-color: #1e1e1e;
+  background-color: rgb(41, 41, 41);
   color: #fff;
-  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
-  background: linear-gradient(135deg, 
-              rgba(255, 255, 255, 0.2) 0%, 
-              rgba(79, 172, 254, 0.4) 50%, 
-              rgba(167, 112, 239, 0.4) 100%);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-.service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   background: linear-gradient(135deg, 
               rgba(255, 255, 255, 0.2) 0%, 
               rgba(79, 172, 254, 0.4) 50%, 
@@ -168,25 +162,81 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-.service-card:hover .service-desc {
-  color: white; 
-}
 .service-icon {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #414141;
+  color: #1eff61;
+  background: rgba(0, 0, 0, 0.3);
+  width: 64px;
+  height: 64px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-.service-title {
+.service-info {
+  flex-grow: 1;
+}
+
+.service-info h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
   font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #555555;
+  margin-bottom: 0.5rem;
+  color: white;
 }
 
-.service-desc {
-  color: #ccc;
+.service-card:hover .service-info h3 {
+  color: rgb(54, 54, 54);
+}
+
+.service-card:hover .service-info p {
+  color: rgb(110, 110, 110);
+}
+
+.service-info p {
   font-size: 0.9rem;
   line-height: 1.5;
+  color: #ccc;
+  margin-bottom: 0.8rem;
+}
+
+.tech-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tech-tags span {
+  background: rgba(30, 255, 97, 0.15);
+  color: #1eff61;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  display: inline-block;
+}
+
+.service-card .project-button {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 38px;
+  height: 38px;
+  background: rgba(30, 255, 97, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1eff61;
+  border: 1px solid rgba(30, 255, 97, 0.5);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.service-card .project-button:hover {
+  background: rgba(30, 255, 97, 0.4);
+  transform: translateX(5px);
 }
 
 .stats-container {
@@ -218,7 +268,21 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .services-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+  
+  .service-icon {
+    margin-bottom: 1rem;
+  }
+  
+  .tech-tags {
+    justify-content: center;
   }
   
   .stats-container {
@@ -230,6 +294,12 @@ body {
   .services-container,
   .stats-container {
     grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 4rem;
   }
 }
 /* Hobbies Section */
@@ -387,6 +457,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  padding-bottom: 4rem;
 }
 
 /* Framer-specific cards */
@@ -443,18 +515,12 @@ body {
 .project-card:hover .project-meta {
   color: rgb(68, 68, 68);
 }
-/* Responsive */
-@media (max-width: 768px) {
-  .bento-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* Project Button Styles */
 .project-button {
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
+  right: 1.5rem;
   width: 40px;
   height: 40px;
   background: rgba(57, 255, 116, 0.295); 
@@ -486,143 +552,14 @@ body {
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Card Positioning */
-.project-card {
-  position: relative; 
-  padding-bottom: 4rem; 
-}
-/* Services Section */
-.services-section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.services-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.service-card {
-  background: rgb(41, 41, 41);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  padding: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  position: relative; 
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  background: linear-gradient(135deg, 
-              rgba(255, 255, 255, 0.2) 0%, 
-              rgba(79, 172, 254, 0.4) 50%, 
-              rgba(167, 112, 239, 0.4) 100%);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-
-.service-icon i {
-  font-size: 2.2rem;
-  color: #1eff61; 
-  background: rgba(0, 0, 0, 0.3);
-  width: 64px;
-  height: 64px;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-info {
-  flex-grow: 1;
-  color: #838383;
-}
-
-.service-info h3 {
-  font-family: 'Clash Display', sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: white;
-}
-
-.service-card:hover .service-info h3 {
-  color: rgb(54, 54, 54);
-}
-
-.service-card:hover .service-info p {
-  color: rgb(110, 110, 110);
-}
-
-.service-info p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #ccc;
-  margin-bottom: 0.8rem;
-}
-
-.tech-tags span {
-  background: rgba(30, 255, 97, 0.15);
-  color: #1eff61;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  display: inline-block;
-}
-
-.project-button {
-  position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 38px;
-  height: 38px;
-  background: rgba(30, 255, 97, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1eff61;
-  border: 1px solid rgba(30, 255, 97, 0.5);
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.project-button:hover {
-  background: rgba(30, 255, 97, 0.4);
-  transform: translateX(5px);
-}
-
-.project-button:active {
-  background: rgba(20, 200, 80, 0.6);
-  transform: translateX(5px) scale(0.95);
-}
-
-/* Responsive Adjustments */
+/* Responsive */
 @media (max-width: 768px) {
-  .service-card {
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 4rem;
-  }
-  
-  .service-icon {
-    margin-bottom: 1rem;
-  }
-  
-  .tech-tags {
-    justify-content: center;
+  .bento-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-  /* Contact Section - Matches Portfolio Style */
+/* Contact Section - Matches Portfolio Style */
 .contact-section {
   padding: 4rem 2rem;
   max-width: 1200px;
@@ -665,7 +602,7 @@ body {
 }
 
 .contact-left h1 span {
-  color: #1eff61; /* Your accent color */
+  color: #1eff61;
 }
 
 .contact-left p {
@@ -731,7 +668,6 @@ body {
   border-color: #1eff61;
   background: rgba(30, 255, 97, 0.1);
 }
-
 
 .main-btn {
   width: 100%;
@@ -808,4 +744,3 @@ body {
   color: rgba(253, 58, 221, 0.603);
   border-color: #b620e4;
 }
-
